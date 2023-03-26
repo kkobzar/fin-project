@@ -10,5 +10,7 @@ data = requests.get(URL).text
 # парсимо сторінку
 soup = BeautifulSoup(data, features="html.parser")
 
+films = soup.find_all("td", {"class":"titleColumn"})
 
-print(soup.find_all("td"))
+for f in films:
+  print(f.getText())
